@@ -1,0 +1,38 @@
+CREATE DATABASE DB_LKS;
+GO
+USE DB_LKS;
+
+-- A. TABEL MASTER (User & Produk)
+CREATE TABLE Users (
+    username VARCHAR(20) PRIMARY KEY,
+    password VARCHAR(20),
+    nama VARCHAR(50),
+    role VARCHAR(10) -- 'Admin' atau 'Kasir'
+);
+
+CREATE TABLE Produk (
+    kode_produk VARCHAR(10) PRIMARY KEY,
+    nama_produk VARCHAR(50),
+    harga INT,
+    stok INT
+);
+
+-- B. TABEL TRANSAKSI (Header-Detail)
+CREATE TABLE Penjualan (
+    no_faktur VARCHAR(20) PRIMARY KEY,
+    tanggal DATETIME,
+    total INT,
+    kasir VARCHAR(20) FOREIGN KEY REFERENCES Users(username)
+);
+
+CREATE TABLE Penjualan_Detail (
+    id_detail INT PRIMARY KEY IDENTITY,
+    no_faktur VARCHAR(20) FOREIGN KEY REFERENCES Penjualan(no_faktur),
+    kode_produk VARCHAR(10) FOREIGN KEY REFERENCES Produk(kode_produk),
+    qty INT,
+    subtotal INT
+);
+
+-- DATA AWAL UNTUK TESTING
+INSERT INTO Users VALUES ('admin', '123', 'Budi Kasir', 'Admin');
+INSERT INTO Produk VALUES ('P01', 'Kopi', 5000, 100), ('P02', 'Susu', 3000, 50);
