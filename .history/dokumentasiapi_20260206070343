@@ -1,0 +1,2 @@
+http://localhost/folder_project_kamu/
+A. Login UserMemeriksa username dan password untuk masuk ke sistem.Endpoint: /auth.phpMethod: POSTBody Parameters:KeyTipeWajib?KeteranganaksiStringYaIsi dengan value: loginuserStringYaUsername kasirpassStringYaPassword kasir

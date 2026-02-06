@@ -1,0 +1,46 @@
+http://localhost/folder_project_kamu/
+1. Autentikasi (auth.php)
+Login:
+aksi: login
+user: [Username pengguna]
+pass: [Password pengguna]
+
+Register:
+aksi: register
+user: [Username baru]
+pass: [Password baru]
+nama: [Nama lengkap]
+
+2. Produk & Stok (toko.php)
+Cari Produk (Method: GET):
+cari: [Nama produk yang dicari]
+
+Tambah Produk:
+aksi: tambah
+
+kode: [Kode produk]
+
+nama: [Nama produk]
+
+harga: [Harga produk]
+
+stok: [Jumlah stok]
+
+Hapus Produk:
+
+aksi: hapus
+
+kode: [Kode produk yang akan dihapus]
+
+3. Transaksi Penjualan (toko.php)
+Proses Jual:
+
+aksi: jual
+
+faktur: [Nomor faktur]
+
+total: [Total harga belanja]
+
+kasir: [Username kasir]
+
+items: [Array JSON: kode, jumlah, subtotal]
